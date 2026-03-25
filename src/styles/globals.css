@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* Base color system (dark by default). */
+:root {
+  --bg-primary: #0a0a0b; /* near-black */
+  --bg-secondary: #111113; /* card surfaces */
+  --bg-elevated: #1a1a1f; /* hover states, modals */
+  --text-primary: #f0f0f0;
+  --text-secondary: #8a8a8a;
+  --accent: #3b82f6; /* strong blue */
+  --accent-subtle: #3b82f620;
+  --border: #222228;
+  --success: #22c55e;
+  --warning: #eab308;
+
+  --font-display: inherit;
+  --font-body: inherit;
+  --font-mono: inherit;
+}
+
+/* Optional light mode. Toggle via `data-theme="light"` on <html>. */
+html[data-theme="light"] {
+  --bg-primary: #f6f7fb;
+  --bg-secondary: #ffffff;
+  --bg-elevated: #f0f2f8;
+  --text-primary: #0a0a0b;
+  --text-secondary: #5a5a66;
+  --border: #e5e7ee;
+  --accent-subtle: #3b82f61a;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+::selection {
+  background: var(--accent-subtle);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Respect reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
