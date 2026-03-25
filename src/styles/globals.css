@@ -8,6 +8,8 @@
   --text-primary: #f0f0f0;
   --text-secondary: #8a8a8a;
   --accent: #3b82f6; /* strong blue */
+  --accent-2: #a855f7;
+  --accent-3: #14b8a6;
   --accent-subtle: #3b82f620;
   --border: #222228;
   --success: #22c55e;
@@ -40,10 +42,30 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(700px circle at 8% -10%, color-mix(in oklab, var(--accent) 26%, transparent), transparent 65%),
+    radial-gradient(640px circle at 90% 0%, color-mix(in oklab, var(--accent-2) 24%, transparent), transparent 66%),
+    radial-gradient(780px circle at 52% 115%, color-mix(in oklab, var(--accent-3) 18%, transparent), transparent 70%);
 }
 
 .mono {
   font-family: var(--font-mono);
+}
+
+.text-gradient {
+  background: linear-gradient(110deg, var(--text-primary), color-mix(in oklab, var(--accent) 65%, white), color-mix(in oklab, var(--accent-2) 60%, white));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 * {

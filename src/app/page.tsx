@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { profile } from "@/data/profile";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import CurrentlyBlock from "@/components/home/CurrentlyBlock";
@@ -13,12 +14,13 @@ export default function HomePage(_: HomePageProps) {
     <>
       <AnimatedSection delayMs={0}>
         <section className="relative overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-5 py-10 sm:px-10 sm:py-12">
-          <div className="pointer-events-none absolute inset-0 opacity-80 [background-image:linear-gradient(to_right,rgba(59,130,246,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.06)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(60%_60%_at_20%_10%,black,transparent)]" />
+          <div className="pointer-events-none absolute inset-0 opacity-90 [background-image:linear-gradient(to_right,rgba(59,130,246,0.14)_1px,transparent_1px),linear-gradient(to_bottom,rgba(168,85,247,0.08)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(65%_65%_at_30%_20%,black,transparent)]" />
 
-          <div className="relative max-w-[760px]">
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-              {profile.name}
-            </h1>
+          <div className="relative grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+            <div>
+              <h1 className="text-gradient text-4xl font-semibold tracking-tight sm:text-5xl">
+                {profile.name}
+              </h1>
             <p className="mt-4 text-lg text-[color:var(--text-secondary)] sm:text-xl">
               {profile.tagline}
             </p>
@@ -113,6 +115,24 @@ export default function HomePage(_: HomePageProps) {
                 </MagneticHover>
               ) : null}
             </div>
+            </div>
+
+            <aside className="mx-auto w-full max-w-[320px] lg:mx-0">
+              <div className="relative overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--bg-elevated)] p-2 shadow-[0_20px_60px_-30px_color-mix(in_oklab,var(--accent)_70%,transparent)]">
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[linear-gradient(135deg,color-mix(in_oklab,var(--accent)_30%,transparent),transparent_45%,color-mix(in_oklab,var(--accent-2)_24%,transparent))]" />
+                <Image
+                  src="/headshot.png"
+                  alt="Aaryan Suri headshot"
+                  width={640}
+                  height={800}
+                  priority
+                  className="relative h-auto w-full rounded-xl object-cover"
+                />
+              </div>
+              <p className="mono mt-3 text-center text-[11px] tracking-wide text-[color:var(--text-secondary)] lg:text-left">
+                QUEST Honors · UMD 2028
+              </p>
+            </aside>
           </div>
         </section>
       </AnimatedSection>

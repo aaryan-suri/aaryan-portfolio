@@ -20,9 +20,6 @@ out
 .idea
 .vscode
 
-# Vercel
-.vercel
-
 # Misc
 .tmp-home
 .npmrc-sandbox
