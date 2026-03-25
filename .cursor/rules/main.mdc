@@ -1,0 +1,99 @@
+---
+description: Portfolio repo conventions (Next.js App Router, Tailwind v4, strict TS)
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# aaryan-portfolio · Cursor rules
+
+## Project layout
+
+- **`src/app/`** — App Router routes, `layout.tsx`, `page.tsx`, `generateMetadata`, `generateStaticParams`, `opengraph-image.tsx`, `robots.ts`, `sitemap.ts`. Dynamic segments live in folders like `[slug]/`.
+- **`src/components/`** — Group by area: `layout/`, `home/`, `projects/`, `experience/`, `ui/`, `seo/`. Prefer colocating a feature’s UI here rather than bloating `page.tsx`.
+- **`src/data/`** — Source-of-truth content: plain TypeScript modules (`profile.ts`, `projects.ts`, etc.) exporting typed interfaces + `const` arrays. No runtime DB in this app.
+- **`src/lib/`** — Small env-aware helpers (e.g. `getSiteUrl()`). No heavy frameworks.
+- **`src/styles/globals.css`** — Tailwind v4 entry (`@import "tailwindcss"`), design tokens as **CSS variables** (`--bg-primary`, `--accent`, …), shared utilities (`.focus-ring`, `.surface-card`, `.btn-primary`, …).
+- **`public/`** — Static assets only (`resume.pdf`, images). Reference with absolute paths from root (`/headshot.png`).
+
+Imports use the **`@/*` → `src/*`** alias (see `tsconfig.json`).
+
+---
+
+## Core principles
+
+1. **KISS** — Smallest change that solves the problem. Avoid new dependencies unless they clearly beat what we already have (Next, React, Tailwind, Framer Motion, Lucide).
+2. **DRY at the data layer** — Copy, project metadata, and proof points live in **`src/data/`** once; UI imports them. Don’t duplicate strings across pages.
+3. **Server by default** — Use Server Components unless you need browser APIs, React state, subscriptions, or Framer Motion in that tree. Mark leaf components with **`"use client"`** only when necessary.
+4. **Strict TypeScript** — `strict: true`. Export **`interface` props** (e.g. `FooProps`) for components that take props. Reuse data types from `@/data/*` with `import type`.
+5. **Accessible, recruiter-facing UI** — Meaningful **labels**, **focus-visible** rings (`.focus-ring`), **reduced-motion** respect where animation matters (e.g. Framer `useReducedMotion`, CSS `prefers-reduced-motion`).
+6. **Honest copy** — No invented metrics. Align **`proof`**, **`profile`**, and project **`impact`** with real outcomes. Prefer **middle dots (·)** or punctuation over **em dashes (—)** in user-facing copy unless quoting something external.
+
+---
+
+## Tech stack standards
+
+### Next.js (App Router, v16+)
+
+- **Dynamic routes** — Route `params` (and `searchParams` when used) are **`Promise<{ ... }>`**. Always **`await params`** in `generateMetadata` and the page component. Sync access will break at runtime (e.g. 404 on `/projects/[slug]`).
+- **Metadata** — Use `metadata` / `generateMetadata`; keep titles consistent with the template in root **`layout.tsx`** (`%s · Aaryan Suri`). Use **`getSiteUrl()`** from `@/lib/site` for absolute URLs, not hard-coded production URLs in multiple places.
+- **Static generation** — Export **`generateStaticParams`** when all slugs are known from data (e.g. projects from `@/data/projects`).
+- **Navigation** — Prefer **`next/link`** for internal routes; **`notFound()`** when a slug doesn’t match data.
+- **Images** — **`next/image`** for bundled/optimized images; **`priority`** only for above-the-fold hero images.
+
+### React 19
+
+- Avoid unnecessary client boundaries; **push `"use client"` down** to the smallest subtree (e.g. `Navbar`, `ThemeToggle`, `MagneticHover`).
+
+### Tailwind CSS v4
+
+- Prefer **semantic classes** defined in **`globals.css`** (`.surface-card`, `.section-rule`, `.btn-outline`, `.link-muted`, `.text-gradient`, `.mono`) for consistency.
+- Theme via **CSS variables** (e.g. `text-[color:var(--text-secondary)]`, `border-[color:var(--border)]`) so light/dark (`html[data-theme="light"]`) stays coherent.
+- Use responsive prefixes (`sm:`, `md:`, `lg:`) as already used in layouts; **mobile-first** spacing.
+
+### Framer Motion
+
+- Use **`useReducedMotion()`** where animation affects layout or motion-heavy UI (see **`Navbar`**, **`FocusAreasMarquee`** pattern).
+- Keep motion subtle; don’t block content or core CTAs on animation.
+
+### Lucide React
+
+- Icon set version may omit some named icons; **`ExternalLink`** and text fallbacks are acceptable when a brand icon isn’t available.
+
+---
+
+## Naming conventions
+
+| Kind | Convention | Examples |
+|------|------------|----------|
+| React components | **PascalCase** file + default export | `ProjectDetail.tsx`, `CopyEmailButton.tsx` |
+| Component props interface | **`ComponentNameProps`** | `ProjectCardProps`, `JsonLdProps` |
+| Route folders | **Next defaults** | `projects/[slug]/`, lowercase segments |
+| Data modules | **camelCase** file names | `projects.ts`, `focusAreas.ts`, `coursework.ts` |
+| Exported data | **camelCase** for arrays/constants | `projects`, `proofPoints`, `focusAreaLabels` |
+| Functions / helpers | **camelCase** | `getProjectBySlug`, `getSiteUrl` |
+| Slugs | **kebab-case** string values | `diamondback-apartment-finder` |
+| CSS utility classes | **kebab-case** | `.focus-ring`, `.surface-quiet` |
+
+---
+
+## Patterns to follow
+
+- **Composable class strings** — Use `[].join(" ")` when merging conditional Tailwind-style classes in components (see **`ProjectCard`**).
+- **External links** — `target="_blank"` with **`rel="noreferrer"`**; add **`aria-label`** when the visible label is ambiguous.
+- **Env** — Document new public env vars in **`.env.example`**; **`NEXT_PUBLIC_SITE_URL`** must not have a trailing slash (handled in `getSiteUrl`).
+- **SEO** — **`JsonLd`**, `sitemap.ts`, and `robots.ts` stay aligned with **`getSiteUrl()`**.
+
+---
+
+## Common pitfalls (this codebase)
+
+1. **`params` not awaited** in `app/**/[slug]/page.tsx` or `generateMetadata` → **`undefined` slug** → **`notFound()`** → 404 for every dynamic page.
+2. **Root `metadata.alternates.canonical`** pinned to one URL → wrong canonical for **`/projects/*`**, **`/about`**, etc. Prefer per-route metadata or omit global canonical if it would duplicate incorrectly.
+3. **`"use client"` on large trees** → unnecessary bundle weight and hydration. Keep server pages thin.
+4. **Duplicating project or profile copy** in components instead of **`@/data/*`** → drift and typos.
+5. **Hard-coding production domain** in multiple files** → use **`getSiteUrl()`** and env.
+6. **Lucide import assumptions** → verify the icon exists in the installed version or swap for an alternative.
+7. **Ignoring `prefers-reduced-motion`** on infinite CSS animations** → provide a static fallback (see marquee + reduced-motion handling).
+8. **`git` repo confusion** — This project’s repo root is **`aaryanPortfolio/`**; do not treat the user home directory as the project root.
+
+When in doubt, **`npm run build`** is the source of truth for type and route correctness before push.
