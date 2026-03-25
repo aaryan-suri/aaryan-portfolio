@@ -33,7 +33,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               rel="noreferrer"
               className="btn-primary focus-ring px-4 py-2"
             >
-              Live →
+              {project.externalLabel ?? "Live →"}
             </a>
           ) : null}
           {project.githubUrl ? (
@@ -55,6 +55,42 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           {project.whatItDoes}
         </p>
       </section>
+
+      {project.caseStudyParagraphs?.length ? (
+        <section className="mt-10" aria-labelledby="case-study-heading">
+          <h2 id="case-study-heading" className="text-lg font-semibold tracking-tight">
+            About this project
+          </h2>
+          <div className="mt-4 max-w-[820px] space-y-4 text-sm leading-relaxed text-[color:var(--text-secondary)]">
+            {project.caseStudyParagraphs.map((para, idx) => (
+              <p key={`${project.slug}-cs-${idx}`} className="text-[color:var(--text-primary)]">
+                {para}
+              </p>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {project.externalUrl ? (
+        <aside
+          className="surface-quiet mt-10 max-w-[820px] rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] p-5 sm:p-6"
+          aria-label="Live product link"
+        >
+          <p className="text-sm font-medium text-[color:var(--text-primary)]">See it live</p>
+          <p className="mt-2 text-sm text-[color:var(--text-secondary)]">
+            Opens in a new tab:{" "}
+            <span className="mono text-[color:var(--text-primary)]">{project.externalUrl}</span>
+          </p>
+          <a
+            href={project.externalUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary focus-ring mt-4 inline-flex px-4 py-2"
+          >
+            {project.externalLabel ?? "Open site →"}
+          </a>
+        </aside>
+      ) : null}
 
       <section className="mt-10">
         <h2 className="text-lg font-semibold tracking-tight">Highlights</h2>

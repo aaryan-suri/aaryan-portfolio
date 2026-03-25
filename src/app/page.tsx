@@ -4,8 +4,9 @@ import { profile } from "@/data/profile";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import CurrentlyBlock from "@/components/home/CurrentlyBlock";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import { Download, ExternalLink, Mail, ArrowRight } from "lucide-react";
+import { Download, ExternalLink, ArrowRight } from "lucide-react";
 import MagneticHover from "@/components/ui/MagneticHover";
+import CopyEmailButton from "@/components/ui/CopyEmailButton";
 
 export interface HomePageProps {}
 
@@ -101,14 +102,9 @@ export default function HomePage(_: HomePageProps) {
 
               {profile.email ? (
                 <MagneticHover className="inline-flex" strengthPx={12}>
-                  <a
-                    href={`mailto:${profile.email}`}
-                    aria-label="Email"
-                    className="btn-outline focus-ring px-3 py-2"
-                  >
-                    <Mail size={16} />
-                    Email
-                  </a>
+                  <span className="inline-flex">
+                    <CopyEmailButton email={profile.email} variant="button" label="Copy email" />
+                  </span>
                 </MagneticHover>
               ) : null}
             </div>

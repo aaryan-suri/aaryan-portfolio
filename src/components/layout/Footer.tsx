@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ExternalLink, Mail } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { profile } from "@/data/profile";
+import CopyEmailButton from "@/components/ui/CopyEmailButton";
 
 export interface FooterProps {}
 
@@ -73,15 +74,7 @@ export default function Footer(_: FooterProps) {
           </a>
         ) : null}
 
-        {profile.email ? (
-          <a
-            href={`mailto:${profile.email}`}
-            aria-label="Email"
-            className="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] text-[color:var(--text-secondary)] transition-colors hover:border-[color:var(--accent)] hover:text-[color:var(--text-primary)]"
-          >
-            <Mail size={18} />
-          </a>
-        ) : null}
+        {profile.email ? <CopyEmailButton email={profile.email} variant="icon" /> : null}
       </div>
     </footer>
   );
