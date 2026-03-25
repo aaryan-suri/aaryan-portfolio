@@ -7,6 +7,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import { Download, ExternalLink, ArrowRight } from "lucide-react";
 import MagneticHover from "@/components/ui/MagneticHover";
 import CopyEmailButton from "@/components/ui/CopyEmailButton";
+import ProofStrip from "@/components/home/ProofStrip";
 
 export interface HomePageProps {}
 
@@ -19,12 +20,19 @@ export default function HomePage(_: HomePageProps) {
 
           <div className="relative grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
             <div>
-              <h1 className="text-gradient text-4xl font-semibold tracking-tight sm:text-5xl">
+              <p className="mono text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--text-secondary)]">
+                CE @ UMD · QUEST Honors · incoming SWE intern
+              </p>
+              <h1 className="text-gradient mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
                 {profile.name}
               </h1>
             <p className="mt-4 text-lg text-[color:var(--text-secondary)] sm:text-xl">
               {profile.tagline}
             </p>
+
+            <div className="mt-5">
+              <ProofStrip />
+            </div>
 
             <div className="mt-6 space-y-2 text-sm leading-relaxed sm:text-[15px]">
               {profile.intro.map((line) => (

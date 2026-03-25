@@ -6,6 +6,8 @@ import Footer from "@/components/layout/Footer";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import PageTransition from "@/components/layout/PageTransition";
 import GlowCursor from "@/components/ui/GlowCursor";
+import JsonLd from "@/components/seo/JsonLd";
+import { getSiteUrl } from "@/lib/site";
 
 const displayFont = Inter({
   subsets: ["latin"],
@@ -22,10 +24,44 @@ const monoFont = JetBrains_Mono({
   variable: "--font-mono",
 });
 
+const siteUrl = getSiteUrl();
+const defaultTitle = "Aaryan Suri — Software & infrastructure that ships";
+const defaultDescription =
+  "CE @ UMD (QUEST). Incoming Capital One Analyst Engineering Intern (Summer 2026). Shipped housing.dbknews.com, AWS cost work (~14% savings), PostPilot, and applied ML (AIE).";
+
 export const metadata: Metadata = {
-  title: "Aaryan Suri — Portfolio",
-  description:
-    "Systems + product engineering portfolio. I build infrastructure and applied ML pipelines that ship.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: defaultTitle,
+    template: "%s — Aaryan Suri",
+  },
+  description: defaultDescription,
+  keywords: [
+    "Aaryan Suri",
+    "software engineer",
+    "infrastructure",
+    "UMD",
+    "Computer Engineering",
+    "NEXT.js",
+    "AWS",
+    "machine learning",
+  ],
+  authors: [{ name: "Aaryan Suri", url: siteUrl }],
+  creator: "Aaryan Suri",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Aaryan Suri",
+    title: defaultTitle,
+    description: defaultDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
+  },
+  robots: { index: true, follow: true },
 };
 
 export interface RootLayoutProps {
@@ -40,6 +76,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       suppressHydrationWarning
     >
       <body>
+        <JsonLd />
         <a
           href="#main"
           className="focus-ring sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-[color:var(--bg-secondary)] focus:px-3 focus:py-2 focus:text-sm focus:text-[color:var(--text-primary)]"

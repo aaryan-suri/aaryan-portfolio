@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import { projects } from "@/data/projects";
 import ProjectGrid from "@/components/projects/ProjectGrid";
 
 export interface ProjectsPageProps {}
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Shipped infrastructure, full-stack products, and ML systems — with write-ups, live demos, and source where available.",
+};
 
 export default function ProjectsPage(_: ProjectsPageProps) {
   return (

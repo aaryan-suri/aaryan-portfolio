@@ -98,7 +98,7 @@ export const projects: Project[] = [
       "Automated lineup optimization, waiver wire analysis, and points analytics dashboard for ESPN fantasy basketball leagues.",
     highlights: [
       "Multi-module architecture (lineup optimizer, waiver analyzer, analytics dashboard).",
-      "Used competitively in his own league (“suri tuff”).",
+      "Shipped for production use in my own league (“suri tuff”).",
     ],
   },
   {

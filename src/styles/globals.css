@@ -56,6 +56,13 @@ body {
   position: relative;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
 body::before {
   content: "";
   position: fixed;

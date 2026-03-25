@@ -15,9 +15,16 @@ export default function AboutPage(_: AboutPageProps) {
     <>
       <header className="flex flex-col gap-3">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">About</h1>
-        <p className="max-w-[860px] text-sm text-[color:var(--text-secondary)]">
-          {profile.intro[0]} I’m interested in systems programming, NLP, and quantitative finance.
-        </p>
+        <div className="max-w-[860px] space-y-3 text-sm text-[color:var(--text-secondary)]">
+          {profile.intro.map((line) => (
+            <p key={line} className="text-[color:var(--text-primary)]">
+              {line}
+            </p>
+          ))}
+          <p>
+            I’m also interested in systems programming, quantitative finance, and sports analytics.
+          </p>
+        </div>
       </header>
 
       <section className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">

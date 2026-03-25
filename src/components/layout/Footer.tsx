@@ -9,9 +9,12 @@ export default function Footer(_: FooterProps) {
   return (
     <footer className="mx-auto w-full max-w-[1200px] px-4 pb-10 pt-10">
       <div className="flex flex-col gap-3 border-t border-[color:var(--border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-[color:var(--text-secondary)]">
-          © {new Date().getFullYear()} Aaryan Suri
-        </p>
+        <div>
+          <p className="text-sm text-[color:var(--text-secondary)]">© {new Date().getFullYear()} Aaryan Suri</p>
+          <p className="mt-1 max-w-[420px] text-xs leading-relaxed text-[color:var(--text-secondary)]">
+            Open to software engineering roles. Infrastructure, backend, and applied ML—systems that hold up in production.
+          </p>
+        </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
           <Link
             href="/"

@@ -11,12 +11,16 @@ export interface Profile {
 
 export const profile: Profile = {
   name: "Aaryan Suri",
-  tagline: "I build systems that ship.",
+  tagline: "Infrastructure and full-stack products that ship to real users—not portfolio demos.",
   intro: [
-    "I’m a sophomore Computer Engineering student at the University of Maryland (QUEST Honors).",
-    "I focus on infrastructure + product engineering, with a bias toward real systems and applied ML.",
+    "Computer Engineering @ UMD (QUEST Honors). Incoming Analyst Engineering Intern @ Capital One (Summer 2026).",
+    "Shipped work includes a live housing product (data + AWS + React), ~14% AWS cost reduction at The Diamondback, and PostPilot—calendar-aware social tooling for student orgs. Applied ML: multi-stage NLP pipeline (AIE).",
   ],
-  currently: ["Interning at Capital One", "Building AIE", "Studying DSA"],
+  currently: [
+    "Capital One — Analyst Engineering Intern (Summer 2026)",
+    "Building Argument Intelligence Engine (NLP)",
+    "DSA + systems fundamentals",
+  ],
   resumeHref: "/resume.pdf",
   githubUrl: "https://github.com/aaryan-suri",
   linkedInUrl: "https://www.linkedin.com/in/aaryan-suri/",
