@@ -11,19 +11,40 @@ export default function Footer(_: FooterProps) {
         <p className="text-sm text-[color:var(--text-secondary)]">
           © {new Date().getFullYear()} Aaryan Suri
         </p>
-        <div className="flex items-center gap-4 text-sm">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+          <Link
+            href="/"
+            className="focus-ring rounded-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+          >
+            Home
+          </Link>
           <Link
             href="/projects"
-            className="text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+            className="focus-ring rounded-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
           >
             Projects
           </Link>
           <Link
             href="/experience"
-            className="text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+            className="focus-ring rounded-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
           >
             Experience
           </Link>
+          <Link
+            href="/about"
+            className="focus-ring rounded-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+          >
+            About
+          </Link>
+          {profile.resumeHref ? (
+            <a
+              href={profile.resumeHref}
+              download
+              className="focus-ring rounded-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+            >
+              Resume
+            </a>
+          ) : null}
         </div>
       </div>
 
@@ -34,7 +55,7 @@ export default function Footer(_: FooterProps) {
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)] hover:border-[color:var(--accent)]"
+            className="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] text-[color:var(--text-secondary)] transition-colors hover:border-[color:var(--accent)] hover:text-[color:var(--text-primary)]"
           >
             <ExternalLink size={18} />
           </a>
@@ -46,7 +67,7 @@ export default function Footer(_: FooterProps) {
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)] hover:border-[color:var(--accent)]"
+            className="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] text-[color:var(--text-secondary)] transition-colors hover:border-[color:var(--accent)] hover:text-[color:var(--text-primary)]"
           >
             <span className="text-[12px] font-semibold leading-none">in</span>
           </a>
@@ -56,7 +77,7 @@ export default function Footer(_: FooterProps) {
           <a
             href={`mailto:${profile.email}`}
             aria-label="Email"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)] hover:border-[color:var(--accent)]"
+            className="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] text-[color:var(--text-secondary)] transition-colors hover:border-[color:var(--accent)] hover:text-[color:var(--text-primary)]"
           >
             <Mail size={18} />
           </a>

@@ -29,7 +29,7 @@ export default function Navbar({ rightSlot }: NavbarProps) {
           <MagneticHover className="inline-flex" strengthPx={12}>
             <Link
               href="/"
-              className="text-sm font-semibold tracking-wide text-[color:var(--text-primary)]"
+              className="focus-ring rounded-sm text-sm font-semibold tracking-wide text-[color:var(--text-primary)]"
             >
               Aaryan Suri
             </Link>
@@ -40,7 +40,7 @@ export default function Navbar({ rightSlot }: NavbarProps) {
               <MagneticHover className="inline-flex" strengthPx={12}>
                 <Link
                   href="/projects"
-                  className="text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+                  className="focus-ring rounded-sm text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
                 >
                   Projects
                 </Link>
@@ -48,7 +48,7 @@ export default function Navbar({ rightSlot }: NavbarProps) {
               <MagneticHover className="inline-flex" strengthPx={12}>
                 <Link
                   href="/experience"
-                  className="text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+                  className="focus-ring rounded-sm text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
                 >
                   Experience
                 </Link>
@@ -56,7 +56,7 @@ export default function Navbar({ rightSlot }: NavbarProps) {
               <MagneticHover className="inline-flex" strengthPx={12}>
                 <Link
                   href="/about"
-                  className="text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+                  className="focus-ring rounded-sm text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
                 >
                   About
                 </Link>
@@ -73,7 +73,7 @@ export default function Navbar({ rightSlot }: NavbarProps) {
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="inline-flex h-9 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-3 text-sm text-[color:var(--text-secondary)]"
+                className="focus-ring inline-flex h-9 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-3 text-sm text-[color:var(--text-secondary)]"
                 aria-label="Open menu"
               >
                 Menu
@@ -93,10 +93,9 @@ export default function Navbar({ rightSlot }: NavbarProps) {
             exit={reducedMotion ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.18 }}
           >
-            <div
-              className="absolute inset-0 bg-black/40"
-              role="button"
-              tabIndex={-1}
+            <button
+              type="button"
+              className="absolute inset-0 cursor-default border-0 bg-black/40 p-0"
               onClick={() => setOpen(false)}
               aria-label="Close menu"
             />
@@ -115,7 +114,7 @@ export default function Navbar({ rightSlot }: NavbarProps) {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] text-[color:var(--text-secondary)]"
+                  className="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] text-[color:var(--text-secondary)]"
                   aria-label="Close menu"
                 >
                   <X size={18} />
@@ -123,29 +122,38 @@ export default function Navbar({ rightSlot }: NavbarProps) {
               </div>
 
               <nav aria-label="Mobile" className="mt-6 flex flex-col gap-3">
-                <MagneticHover className="inline-flex" strengthPx={10}>
+                <MagneticHover className="inline-flex w-full" strengthPx={10}>
+                  <Link
+                    href="/"
+                    onClick={() => setOpen(false)}
+                    className="focus-ring w-full rounded-lg border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-4 py-3 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+                  >
+                    Home
+                  </Link>
+                </MagneticHover>
+                <MagneticHover className="inline-flex w-full" strengthPx={10}>
                   <Link
                     href="/projects"
                     onClick={() => setOpen(false)}
-                    className="rounded-lg border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-4 py-3 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+                    className="focus-ring w-full rounded-lg border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-4 py-3 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
                   >
                     Projects
                   </Link>
                 </MagneticHover>
-                <MagneticHover className="inline-flex" strengthPx={10}>
+                <MagneticHover className="inline-flex w-full" strengthPx={10}>
                   <Link
                     href="/experience"
                     onClick={() => setOpen(false)}
-                    className="rounded-lg border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-4 py-3 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+                    className="focus-ring w-full rounded-lg border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-4 py-3 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
                   >
                     Experience
                   </Link>
                 </MagneticHover>
-                <MagneticHover className="inline-flex" strengthPx={10}>
+                <MagneticHover className="inline-flex w-full" strengthPx={10}>
                   <Link
                     href="/about"
                     onClick={() => setOpen(false)}
-                    className="rounded-lg border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-4 py-3 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+                    className="focus-ring w-full rounded-lg border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-4 py-3 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
                   >
                     About
                   </Link>

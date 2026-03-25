@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getProjectBySlug, projects } from "@/data/projects";
@@ -33,12 +34,9 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   return (
     <>
       <div className="mb-6">
-        <a
-          href="/projects"
-          className="text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
-        >
+        <Link href="/projects" className="link-muted focus-ring inline-block rounded-sm text-sm">
           ← Back to projects
-        </a>
+        </Link>
       </div>
       <ProjectDetail project={project} />
     </>

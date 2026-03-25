@@ -13,7 +13,7 @@ export default function HomePage(_: HomePageProps) {
   return (
     <>
       <AnimatedSection delayMs={0}>
-        <section className="relative overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-5 py-10 sm:px-10 sm:py-12">
+        <section className="surface-quiet relative overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-5 py-10 sm:px-10 sm:py-12">
           <div className="pointer-events-none absolute inset-0 opacity-90 [background-image:linear-gradient(to_right,rgba(59,130,246,0.14)_1px,transparent_1px),linear-gradient(to_bottom,rgba(168,85,247,0.08)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(65%_65%_at_30%_20%,black,transparent)]" />
 
           <div className="relative grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
@@ -55,7 +55,7 @@ export default function HomePage(_: HomePageProps) {
                   <a
                     href={profile.resumeHref}
                     download
-                    className="inline-flex items-center gap-2 rounded-md border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-4 py-2 text-sm text-[color:var(--text-primary)] transition-colors hover:border-[color:var(--accent)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]"
+                    className="btn-primary focus-ring"
                   >
                     <Download size={16} />
                     Resume (PDF)
@@ -64,10 +64,7 @@ export default function HomePage(_: HomePageProps) {
               ) : null}
 
               <MagneticHover className="inline-flex" strengthPx={12}>
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center gap-2 rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-4 py-2 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]"
-                >
+                <Link href="/projects" className="btn-outline focus-ring">
                   View projects <ArrowRight size={16} />
                 </Link>
               </MagneticHover>
@@ -79,7 +76,7 @@ export default function HomePage(_: HomePageProps) {
                     target="_blank"
                     rel="noreferrer"
                     aria-label="GitHub"
-                    className="inline-flex items-center gap-2 rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-3 py-2 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]"
+                    className="btn-outline focus-ring px-3 py-2"
                   >
                     <ExternalLink size={16} />
                     GitHub
@@ -94,7 +91,7 @@ export default function HomePage(_: HomePageProps) {
                     target="_blank"
                     rel="noreferrer"
                     aria-label="LinkedIn"
-                    className="inline-flex items-center gap-2 rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-3 py-2 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]"
+                    className="btn-outline focus-ring px-3 py-2"
                   >
                     <span className="text-[12px] font-semibold leading-none">in</span>
                     LinkedIn
@@ -107,7 +104,7 @@ export default function HomePage(_: HomePageProps) {
                   <a
                     href={`mailto:${profile.email}`}
                     aria-label="Email"
-                    className="inline-flex items-center gap-2 rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-3 py-2 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]"
+                    className="btn-outline focus-ring px-3 py-2"
                   >
                     <Mail size={16} />
                     Email

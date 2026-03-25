@@ -13,6 +13,8 @@ export default function ProjectsPage(_: ProjectsPageProps) {
         </p>
       </header>
 
+      <div className="section-rule my-8" aria-hidden />
+
       <ProjectGrid projects={projects} />
     </>
   );

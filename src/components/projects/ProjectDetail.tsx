@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { type Project } from "@/data/projects";
 import TechBadge from "@/components/projects/TechBadge";
 
@@ -30,7 +31,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               href={project.externalUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-md border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-4 py-2 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+              className="btn-primary focus-ring px-4 py-2"
             >
               Live →
             </a>
@@ -40,9 +41,9 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-md border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-4 py-2 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+              className="btn-outline focus-ring px-4 py-2"
             >
-              GitHub →
+              {project.githubLabel ?? "GitHub →"}
             </a>
           ) : null}
         </div>
@@ -85,6 +86,21 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           ))}
         </div>
       </section>
+
+      <nav
+        aria-label="Project navigation"
+        className="mt-14 flex flex-wrap gap-x-6 gap-y-2 border-t border-[color:var(--border)] pt-8"
+      >
+        <Link href="/projects" className="link-muted focus-ring rounded-sm">
+          ← All projects
+        </Link>
+        <Link href="/" className="link-muted focus-ring rounded-sm">
+          Home
+        </Link>
+        <Link href="/experience" className="link-muted focus-ring rounded-sm">
+          Experience
+        </Link>
+      </nav>
     </article>
   );
 }

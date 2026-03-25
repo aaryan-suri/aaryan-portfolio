@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { profile } from "@/data/profile";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
@@ -21,7 +22,7 @@ export default function AboutPage(_: AboutPageProps) {
 
       <section className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
         <AnimatedSection delayMs={0}>
-          <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] p-5 sm:p-6">
+          <div className="surface-quiet rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] p-5 sm:p-6">
             <h2 className="text-lg font-semibold tracking-tight">
               Coursework (selected)
             </h2>
@@ -33,7 +34,7 @@ export default function AboutPage(_: AboutPageProps) {
         </AnimatedSection>
 
         <AnimatedSection delayMs={120}>
-          <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] p-5 sm:p-6">
+          <div className="surface-quiet rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] p-5 sm:p-6">
             <h2 className="text-lg font-semibold tracking-tight">
               Outside of code
             </h2>
@@ -48,6 +49,21 @@ export default function AboutPage(_: AboutPageProps) {
           </div>
         </AnimatedSection>
       </section>
+
+      <nav
+        aria-label="Site sections"
+        className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-t border-[color:var(--border)] pt-8 text-sm"
+      >
+        <Link href="/projects" className="link-muted focus-ring rounded-sm">
+          Projects
+        </Link>
+        <Link href="/experience" className="link-muted focus-ring rounded-sm">
+          Experience
+        </Link>
+        <Link href="/" className="link-muted focus-ring rounded-sm">
+          Home
+        </Link>
+      </nav>
     </>
   );
 }

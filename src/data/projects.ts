@@ -8,6 +8,8 @@ export interface Project {
   impact?: string[];
   externalUrl?: string | null;
   githubUrl?: string | null;
+  /** When `githubUrl` is a profile or org page, use a clearer CTA label. */
+  githubLabel?: string;
   status?: string | null;
 }
 
@@ -53,12 +55,14 @@ export const projects: Project[] = [
       "Designed for scale and modularity.",
     ],
     status: "In progress",
-    githubUrl: null,
+    githubUrl: "https://github.com/aaryan-suri",
+    githubLabel: "GitHub profile →",
   },
   {
     slug: "postpilot",
     name: "PostPilot",
     role: "Lead developer",
+    githubUrl: "https://github.com/aaryan-suri/postpilot",
     stack: ["React", "Next.js", "Google Calendar API", "Node.js"],
     whatItDoes:
       "Social media automation tool for student organizations that connects to Google Calendar to schedule and auto-publish posts across platforms.",

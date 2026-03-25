@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { experience } from "@/data/experience";
 import TimelineEntry from "@/components/experience/TimelineEntry";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -20,13 +21,30 @@ export default function ExperiencePage(_: ExperiencePageProps) {
         </p>
       </header>
 
-      <div className="mt-8 space-y-4">
+      <div className="section-rule my-8" aria-hidden />
+
+      <div className="mt-2 space-y-4">
         {experience.map((e, idx) => (
           <AnimatedSection key={e.id} delayMs={idx * 90}>
             <TimelineEntry entry={e} />
           </AnimatedSection>
         ))}
       </div>
+
+      <nav
+        aria-label="Related pages"
+        className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-t border-[color:var(--border)] pt-8 text-sm"
+      >
+        <Link href="/projects" className="link-muted focus-ring rounded-sm">
+          View projects
+        </Link>
+        <Link href="/about" className="link-muted focus-ring rounded-sm">
+          About
+        </Link>
+        <Link href="/" className="link-muted focus-ring rounded-sm">
+          Home
+        </Link>
+      </nav>
     </>
   );
 }

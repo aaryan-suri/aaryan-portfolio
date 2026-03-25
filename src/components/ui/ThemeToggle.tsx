@@ -34,7 +34,7 @@ export default function ThemeToggle({ ariaLabel }: ThemeToggleProps) {
       type="button"
       aria-label={ariaLabel ?? "Toggle light/dark theme"}
       onClick={() => setTheme(nextTheme)}
-      className="rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-3 py-1.5 text-xs text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)]"
+      className="btn-outline focus-ring px-3 py-1.5 text-xs"
     >
       {theme === "dark" ? "Light" : "Dark"}
     </button>

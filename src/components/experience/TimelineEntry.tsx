@@ -8,7 +8,7 @@ export default function TimelineEntry({ entry }: TimelineEntryProps) {
   const bullets = entry.bullets ?? [];
 
   return (
-    <article className="relative rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] p-5 sm:p-6">
+    <article className="surface-quiet relative rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] p-5 sm:p-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h3 className="text-base font-semibold tracking-tight">
