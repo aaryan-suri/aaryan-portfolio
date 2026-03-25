@@ -19,6 +19,6 @@ export const proofPoints: ProofPoint[] = [
   },
   {
     label: "Next",
-    value: "Capital One · Analyst Engineering Intern · Summer 2026",
+    value: "Capital One · Analyst Intern · Summer 2026",
   },
 ];

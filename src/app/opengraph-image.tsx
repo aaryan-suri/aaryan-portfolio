@@ -35,8 +35,8 @@ export default function OpengraphImage() {
           <div style={{ fontSize: 64, fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.05 }}>
             Aaryan Suri
           </div>
-          <div style={{ fontSize: 30, color: "#94a3b8", maxWidth: 820, lineHeight: 1.35 }}>
-            I build systems that ship — infrastructure, data pipelines, and products used in production.
+          <div style={{ fontSize: 28, color: "#94a3b8", maxWidth: 900, lineHeight: 1.4 }}>
+            Data pipelines, AWS, and web UIs—mostly where reliability and cost both matter.
           </div>
         </div>
         <div

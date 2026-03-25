@@ -10,7 +10,7 @@ export const experience: ExperienceEntry[] = [
   {
     id: "capital-one-aeip-2026",
     org: "Capital One",
-    title: "Analyst Engineering Intern (AEIP)",
+    title: "Incoming Analyst Intern",
     dateRange: "Summer 2026",
     bullets: [],
   },

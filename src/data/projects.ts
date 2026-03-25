@@ -60,6 +60,11 @@ export const projects: Project[] = [
     ],
     whatItDoes:
       "A multi-stage NLP pipeline that ingests online discussions (Reddit, forums) and maps them into structured argument graphs—extracting claims, identifying stances, clustering arguments, and visualizing debate structure.",
+    caseStudyParagraphs: [
+      "Online arguments repeat the same moves: claims, pushback, agreement, and tangent threads. I wanted a pipeline that could ingest raw threads and summarize that structure without hand-labeling every sentence.",
+      "The stack alternates between a heavier path (transformer embeddings + HDBSCAN) and a lighter fallback (TF–IDF + KMeans) when data or compute is tight. FastAPI wraps the stages so I can experiment with one module at a time.",
+      "It is still in progress: the graph export and evaluation against labeled samples are the next checkpoints. Code and iteration notes live on my GitHub profile while the repo for this project stabilizes.",
+    ],
     highlights: [
       "Dual-mode pipeline (HuggingFace/HDBSCAN mode vs. lightweight TF-IDF/KMeans fallback).",
       "Designed for scale and modularity.",
@@ -96,6 +101,11 @@ export const projects: Project[] = [
     stack: ["Python (multi-module)", "ESPN API", "Pandas"],
     whatItDoes:
       "Automated lineup optimization, waiver wire analysis, and points analytics dashboard for ESPN fantasy basketball leagues.",
+    caseStudyParagraphs: [
+      "Fantasy basketball turns into a weekly optimization problem: injuries, minutes, and back-to-backs change who you should start. I built a small Python codebase around ESPN’s API so I could answer “who sits?” and “who to grab on waivers?” without re-deriving the math every Sunday.",
+      "The project is split into modules—lineups, waivers, and a simple analytics layer—so I can rerun one piece when the API shape shifts. It is built for one league first, not for commercial scale.",
+      "It is deliberately unglamorous systems work: parsing messy payloads, caching what ESPN returns, and keeping the optimizer’s constraints readable. I still run it in my own league.",
+    ],
     highlights: [
       "Multi-module architecture (lineup optimizer, waiver analyzer, analytics dashboard).",
       "Shipped for production use in my own league (“suri tuff”).",
@@ -108,6 +118,11 @@ export const projects: Project[] = [
     stack: ["AWS"],
     whatItDoes:
       "Led a systematic audit and optimization of The Diamondback's AWS infrastructure.",
+    caseStudyParagraphs: [
+      "The newsroom’s AWS bill had grown in layers—older instances, storage that nobody had revisited, and patterns that made sense at launch but not a year later. I treated it like an inventory: map accounts, trace spend, then change what was safe to change.",
+      "The work was mostly rightsizing, deleting unused resources, and tightening deployment paths so new code did not default to overspecified boxes. Nothing magical—just disciplined cleanup with before/after numbers.",
+      "We landed around a ~14% reduction on the footprint I measured; the specifics stay internal, but the lesson is the same as in class projects: cost is a feature of the architecture, not an afterthought.",
+    ],
     highlights: [
       "Achieved ~14% cost reduction.",
       "Rightsized instances and cleaned unused resources.",

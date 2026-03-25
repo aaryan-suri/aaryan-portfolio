@@ -50,7 +50,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
       </header>
 
       <section className="mt-8">
-        <h2 className="text-lg font-semibold tracking-tight">What it does</h2>
+        <h2 className="text-lg font-semibold tracking-tight">Summary</h2>
         <p className="mt-3 max-w-[820px] text-sm leading-relaxed text-[color:var(--text-primary)]">
           {project.whatItDoes}
         </p>
@@ -59,7 +59,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
       {project.caseStudyParagraphs?.length ? (
         <section className="mt-10" aria-labelledby="case-study-heading">
           <h2 id="case-study-heading" className="text-lg font-semibold tracking-tight">
-            About this project
+            Notes
           </h2>
           <div className="mt-4 max-w-[820px] space-y-4 text-sm leading-relaxed text-[color:var(--text-secondary)]">
             {project.caseStudyParagraphs.map((para, idx) => (
@@ -93,7 +93,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
       ) : null}
 
       <section className="mt-10">
-        <h2 className="text-lg font-semibold tracking-tight">Highlights</h2>
+        <h2 className="text-lg font-semibold tracking-tight">What I worked on</h2>
         <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-[color:var(--text-secondary)]">
           {project.highlights.map((h) => (
             <li key={h} className="text-[color:var(--text-primary)]">

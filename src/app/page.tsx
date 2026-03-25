@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { profile } from "@/data/profile";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
-import CurrentlyBlock from "@/components/home/CurrentlyBlock";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { Download, ExternalLink, ArrowRight } from "lucide-react";
 import MagneticHover from "@/components/ui/MagneticHover";
@@ -140,9 +139,6 @@ export default function HomePage(_: HomePageProps) {
 
       <AnimatedSection delayMs={70}>
         <FeaturedProjects count={3} />
-      </AnimatedSection>
-      <AnimatedSection delayMs={140}>
-        <CurrentlyBlock profile={profile} />
       </AnimatedSection>
     </>
   );

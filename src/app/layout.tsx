@@ -25,9 +25,9 @@ const monoFont = JetBrains_Mono({
 });
 
 const siteUrl = getSiteUrl();
-const defaultTitle = "Aaryan Suri — Software & infrastructure that ships";
+const defaultTitle = "Aaryan Suri — CE @ UMD (QUEST) · infra, data & web";
 const defaultDescription =
-  "CE @ UMD (QUEST). Incoming Capital One Analyst Engineering Intern (Summer 2026). Shipped housing.dbknews.com, AWS cost work (~14% savings), PostPilot, and applied ML (AIE).";
+  "CE @ UMD (QUEST). Incoming Capital One Analyst Intern (Summer 2026). Shipped housing.dbknews.com, AWS savings work (~14%), PostPilot, and applied ML (AIE).";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

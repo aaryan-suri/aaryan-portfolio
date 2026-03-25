@@ -4,16 +4,17 @@ import type { Metadata } from "next";
 import { getProjectBySlug, projects } from "@/data/projects";
 import ProjectDetail from "@/components/projects/ProjectDetail";
 
-export interface ProjectDetailPageProps {
-  params: { slug: string };
-}
-
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: ProjectDetailPageProps): Metadata {
-  const project = getProjectBySlug(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
   if (!project) {
     return {
       title: "Project not found",
@@ -27,8 +28,13 @@ export function generateMetadata({ params }: ProjectDetailPageProps): Metadata {
   };
 }
 
-export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
-  const project = getProjectBySlug(params.slug);
+export default async function ProjectDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
   if (!project) notFound();
 
   return (
@@ -42,4 +48,3 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
     </>
   );
 }
-
