@@ -42,7 +42,6 @@ export const projects: Project[] = [
       "Designed the database schema and ETL pipeline.",
       "Built the web scraping engine.",
       "Contributed to the React frontend.",
-      "Used as a project showcase in a Marshall Wace interview (advanced past phone screen).",
     ],
   },
   {

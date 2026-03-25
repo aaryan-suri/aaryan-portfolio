@@ -65,7 +65,7 @@ export default function ProjectCard({ project, featured }: ProjectCardProps) {
 
           <div className="mt-5 flex items-center justify-between gap-4 text-sm">
             <span className="text-[color:var(--text-secondary)] transition-colors group-hover:text-[color:var(--text-primary)]">
-              Open case study →
+              Open project →
             </span>
             <span className="rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-3 py-2 text-[color:var(--text-secondary)] transition-colors group-hover:border-[color:var(--accent)] group-hover:text-[color:var(--text-primary)]">
               View

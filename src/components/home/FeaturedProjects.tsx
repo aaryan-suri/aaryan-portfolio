@@ -17,7 +17,7 @@ export default function FeaturedProjects({ count = 3 }: FeaturedProjectsProps) {
         <div>
           <h2 className="text-xl font-semibold tracking-tight">Featured work</h2>
           <p className="mt-1 max-w-[560px] text-sm text-[color:var(--text-secondary)]">
-            Outcome-first summaries; each card opens a case study with stack, scope, and links to live products or repos.
+            Outcome-first summaries; each card opens a project page with stack, scope, and links to live products or repos.
           </p>
         </div>
         <Link
