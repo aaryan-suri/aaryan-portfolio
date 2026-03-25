@@ -12,7 +12,7 @@ export default function TimelineEntry({ entry }: TimelineEntryProps) {
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h3 className="text-base font-semibold tracking-tight">
-            {entry.title} — {entry.org}
+            {entry.title} · {entry.org}
           </h3>
           <p className="mt-1 text-sm text-[color:var(--text-secondary)]">{entry.dateRange}</p>
         </div>

@@ -25,7 +25,7 @@ const monoFont = JetBrains_Mono({
 });
 
 const siteUrl = getSiteUrl();
-const defaultTitle = "Aaryan Suri — CE @ UMD (QUEST) · infra, data & web";
+const defaultTitle = "Aaryan Suri · CE @ UMD (QUEST) · infra, data & web";
 const defaultDescription =
   "CE @ UMD (QUEST). Incoming Capital One Analyst Intern (Summer 2026). Shipped housing.dbknews.com, AWS savings work (~14%), PostPilot, and applied ML (AIE).";
 
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: defaultTitle,
-    template: "%s — Aaryan Suri",
+    template: "%s · Aaryan Suri",
   },
   description: defaultDescription,
   keywords: [

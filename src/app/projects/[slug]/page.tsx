@@ -23,7 +23,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.name} — Aaryan Suri`,
+    title: `${project.name} · Aaryan Suri`,
     description: project.whatItDoes,
   };
 }

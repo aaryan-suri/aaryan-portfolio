@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { profile } from "@/data/profile";
+import { coursework } from "@/data/coursework";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export interface AboutPageProps {}
 
 export const metadata: Metadata = {
-  title: "About — Aaryan Suri",
+  title: "About · Aaryan Suri",
   description: "Systems + applied ML. A portfolio built to ship real engineering work.",
 };
 
@@ -22,36 +23,38 @@ export default function AboutPage(_: AboutPageProps) {
             </p>
           ))}
           <p>
-            I’m also interested in systems programming, quantitative finance, and sports analytics.
+            Outside of coursework and projects, I like systems programming, quantitative finance, and sports
+            analytics. For downtime: traveling when I can, powerlifting, and listening to EDM (especially live
+            sets).
           </p>
         </div>
       </header>
 
-      <section className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+      <section className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-2">
         <AnimatedSection delayMs={0}>
-          <div className="surface-quiet rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] p-5 sm:p-6">
-            <h2 className="text-lg font-semibold tracking-tight">
-              Coursework (selected)
-            </h2>
-            <ul className="mt-4 space-y-2 text-sm text-[color:var(--text-secondary)]">
-              <li className="text-[color:var(--text-primary)]">CMSC216</li>
-              <li className="text-[color:var(--text-primary)]">ENEE244</li>
+          <div className="surface-quiet h-full rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] p-5 sm:p-6">
+            <h2 className="text-lg font-semibold tracking-tight">Coursework (selected)</h2>
+            <ul className="mt-4 space-y-3 text-sm text-[color:var(--text-secondary)]">
+              {coursework.map((c) => (
+                <li key={c.code} className="border-b border-[color:var(--border)] pb-3 last:border-0 last:pb-0">
+                  <span className="font-medium text-[color:var(--text-primary)]">{c.code}</span>
+                  <span className="text-[color:var(--text-secondary)]"> · </span>
+                  <span className="text-[color:var(--text-primary)]">{c.title}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </AnimatedSection>
 
         <AnimatedSection delayMs={120}>
-          <div className="surface-quiet rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] p-5 sm:p-6">
-            <h2 className="text-lg font-semibold tracking-tight">
-              Outside of code
-            </h2>
+          <div className="surface-quiet h-full rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-secondary)] p-5 sm:p-6">
+            <h2 className="text-lg font-semibold tracking-tight">Outside of code</h2>
             <ul className="mt-4 space-y-2 text-sm text-[color:var(--text-secondary)]">
-              <li className="text-[color:var(--text-primary)]">
-                Fantasy basketball + sports analytics
-              </li>
-              <li className="text-[color:var(--text-primary)]">
-                Food around College Park
-              </li>
+              <li className="text-[color:var(--text-primary)]">Traveling (when schedules line up)</li>
+              <li className="text-[color:var(--text-primary)]">Powerlifting</li>
+              <li className="text-[color:var(--text-primary)]">EDM and live shows</li>
+              <li className="text-[color:var(--text-primary)]">Fantasy basketball and sports analytics</li>
+              <li className="text-[color:var(--text-primary)]">Food around College Park</li>
             </ul>
           </div>
         </AnimatedSection>
@@ -74,4 +77,3 @@ export default function AboutPage(_: AboutPageProps) {
     </>
   );
 }
-

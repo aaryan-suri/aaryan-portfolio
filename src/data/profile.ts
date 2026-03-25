@@ -11,7 +11,7 @@ export interface Profile {
 export const profile: Profile = {
   name: "Aaryan Suri",
   tagline:
-    "Most of my work sits at the overlap of data pipelines, AWS, and web UIs—where boring reliability matters as much as the feature list.",
+    "Most of my work sits where data pipelines, AWS, and web UIs meet: reliability and cost both have to be boring in a good way.",
   intro: [
     "Computer Engineering @ UMD (QUEST Honors). Incoming Analyst Intern @ Capital One (Summer 2026).",
     "Recent projects: student housing aggregation at housing.dbknews.com, an AWS cost pass that landed around ~14% savings for The Diamondback, PostPilot for student orgs, and a multi-stage NLP pipeline (AIE) for argument structure from online discussions.",

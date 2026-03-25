@@ -12,7 +12,7 @@ export default function Footer(_: FooterProps) {
         <div>
           <p className="text-sm text-[color:var(--text-secondary)]">© {new Date().getFullYear()} Aaryan Suri</p>
           <p className="mt-1 max-w-[420px] text-xs leading-relaxed text-[color:var(--text-secondary)]">
-            Open to software engineering roles. Infrastructure, backend, and applied ML—systems that hold up in production.
+            Open to software engineering roles: infrastructure, backend, and applied ML, focused on systems that hold up in production.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">

@@ -26,7 +26,7 @@ export default function JsonLd(_: JsonLdProps) {
   const website = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: `${profile.name} — Portfolio`,
+    name: `${profile.name} · Portfolio`,
     url,
     description:
       "Portfolio of infrastructure, product engineering, and applied ML projects by Aaryan Suri.",

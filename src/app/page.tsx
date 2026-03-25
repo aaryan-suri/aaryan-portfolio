@@ -7,6 +7,7 @@ import { Download, ExternalLink, ArrowRight } from "lucide-react";
 import MagneticHover from "@/components/ui/MagneticHover";
 import CopyEmailButton from "@/components/ui/CopyEmailButton";
 import ProofStrip from "@/components/home/ProofStrip";
+import FocusAreasMarquee from "@/components/home/FocusAreasMarquee";
 
 export interface HomePageProps {}
 
@@ -20,7 +21,7 @@ export default function HomePage(_: HomePageProps) {
           <div className="relative grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
             <div>
               <p className="mono text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--text-secondary)]">
-                CE @ UMD · QUEST Honors · incoming SWE intern
+                CE @ UMD · QUEST Honors
               </p>
               <h1 className="text-gradient mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
                 {profile.name}
@@ -41,19 +42,13 @@ export default function HomePage(_: HomePageProps) {
               ))}
             </div>
 
-            <div className="mt-6 rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-4 py-3">
-              <div className="mono text-xs text-[color:var(--text-secondary)]">
-                focus_areas:
-              </div>
-              <div className="mt-1 flex flex-wrap gap-2">
-                {["Systems", "NLP pipelines", "Quant + analytics"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-md border border-[color:var(--border)] bg-[color:var(--bg-secondary)] px-2 py-1 text-[11px] text-[color:var(--text-secondary)]"
-                  >
-                    {tag}
-                  </span>
-                ))}
+            <div className="mt-6 rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-3 py-3 sm:px-4">
+              <div className="mono text-xs text-[color:var(--text-secondary)]">focus_areas</div>
+              <p className="mt-1 text-[11px] leading-snug text-[color:var(--text-secondary)]">
+                Technical threads plus a few things I actually spend time on.
+              </p>
+              <div className="mt-3">
+                <FocusAreasMarquee />
               </div>
             </div>
 

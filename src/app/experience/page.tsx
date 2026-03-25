@@ -7,7 +7,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 export interface ExperiencePageProps {}
 
 export const metadata: Metadata = {
-  title: "Experience — Aaryan Suri",
+  title: "Experience · Aaryan Suri",
   description: "Roles and projects across systems, infrastructure, and applied ML.",
 };
 

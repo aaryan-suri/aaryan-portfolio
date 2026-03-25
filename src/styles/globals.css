@@ -95,6 +95,51 @@ body::before {
   box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px color-mix(in oklab, var(--accent) 65%, transparent);
 }
 
+/* Horizontal focus strip (home hero) */
+@keyframes focus-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.focus-marquee-clip {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.focus-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 0.5rem;
+  align-items: center;
+  animation: focus-marquee 52s linear infinite;
+  will-change: transform;
+}
+
+.focus-marquee-clip:hover .focus-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .focus-marquee-clip {
+    mask-image: none;
+    -webkit-mask-image: none;
+    overflow: visible;
+  }
+
+  .focus-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 /* Section rhythm */
 .section-rule {
   height: 1px;

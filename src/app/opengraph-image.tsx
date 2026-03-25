@@ -36,7 +36,7 @@ export default function OpengraphImage() {
             Aaryan Suri
           </div>
           <div style={{ fontSize: 28, color: "#94a3b8", maxWidth: 900, lineHeight: 1.4 }}>
-            Data pipelines, AWS, and web UIs—mostly where reliability and cost both matter.
+            Data pipelines, AWS, and web UIs, mostly where reliability and cost both matter.
           </div>
         </div>
         <div
