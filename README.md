@@ -1,6 +1,6 @@
 # aaryan-portfolio
 
-Personal portfolio site for **Aaryan Suri**. Built with Next.js (App Router) and Tailwind CSS, with project pages under `/projects/[slug]`.
+Personal portfolio site for **Aaryan Suri** (me!). Built with Next.js (App Router) and Tailwind CSS, with project pages under `/projects/[slug]`.
 
 ## Tech
 
